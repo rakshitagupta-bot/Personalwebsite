@@ -120,7 +120,7 @@ body {
    4. HERO SECTION TYPOGRAPHY & SPACING
    ========================================= */
 .hero-section {
-    height: 100vh;
+    height: 110vh;
     display: flex; align-items: center; justify-content: center;
     position: relative; z-index: 1;
 }
