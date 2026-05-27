@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakshita Gupta - Product Journey</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;700&family=DM+Serif+Display:ital@0;1&family=Roboto:wght@400;500;700&family=Georgia&display=swap" rel="stylesheet">
+    
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Grid & Glowing Radial Blur -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <!-- Floating Decorative Stars -->
+    <div class="decorations">
+        <div class="decor star-1"></div>
+        <div class="decor star-2"></div>
+        <div class="decor diamond-1"></div>
+        <div class="decor diamond-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">RG</div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#work">Work</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Full Viewport Height) -->
+    <section id="hero" class="hero-section">
+        
+        <div class="hero-content">
+            <!-- Text Header -->
+            <div class="hero-text-wrapper">
+                <h1 class="hero-title">Rakshita Gupta's</h1>
+                <p class="hero-subtitle">PRODUCT JOURNEY</p>
+            </div>
+
+            <!-- Wallet Interactive Component -->
+            <div class="wallet-wrapper">
+                
+                <!-- The Back of the Wallet Pocket -->
+                <div class="wallet-back">
+                    <div class="wallet-texture"></div>
+                </div>
+                
+                <!-- Cards (Sandwiched between back and front) -->
+                <div class="wallet-cards">
+                    <div class="card card-1 polaroid-card">
+                        <img src="assets/card-photo.jpg" alt="Rakshita" class="card-img">
+                        <div class="map-label">It's me</div>
+                    </div>
+                    
+                    <div class="card card-2 text-card">
+                        <p class="role-text">Currently, a<br>Co-founder<br>at Mastry</p>
+                        <p class="ex-text">Ex - Accenture</p>
+                    </div>
+                    
+                    <div class="card card-3 ui-card">
+                        <img src="assets/card-ui.png" alt="App UI" class="card-img">
+                    </div>
+                    
+                    <div class="card card-4 map-card">
+                        <img src="assets/card-map.png" alt="Map Location" class="card-img">
+                    </div>
+                </div>
+
+                <!-- Wallet Front Cover (The Lower Half) -->
+                <div class="wallet-front">
+                    <!-- Left side decorative stitched circles -->
+                    <div class="wallet-decor-circles">
+                        <div class="circle-outer"></div>
+                        <div class="circle-inner"></div>
+                    </div>
+
+                    <div class="wallet-stitching">
+                        <div class="wallet-texture"></div> 
+                        
+                        <!-- Perfectly Centered Text -->
+                        <h2 class="wallet-greeting">Hello!</h2>
+                    </div>
+
+                    <!-- The Latch/Strap Button on the Right -->
+                    <div class="wallet-latch">
+                        <button id="scroll-btn" class="scroll-btn" aria-label="Scroll Down">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="4" x2="12" y2="20"></line>
+                                <path d="M6 14l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- About Section -->
+    <section id="about" class="about-section reveal-on-scroll">
+        <div class="about-container">
+            
+            <!-- Part 1: Typography & Badges -->
+            <div class="about-text-content">
+                <h3 class="about-statement">
+                    I'm a 
+                    <span class="inline-badge badge-orange">Product Designer</span> 
+                    with a UX brain <span class="inline-badge badge-icon"><img src="assets/brain.svg" alt="📍"></span> who learned business  
+                    <span class="text-emphasis">the hard way</span> by <span class="text-emphasis">building a company</span> and watching it fail and grow.
+                </h3>
+                
+                <h3 class="about-statement">
+                    I ask too many questions.<br><span class="text-emphasis">"But why?"</span> is my default. I don't settle for
+                    <span class="inline-badge badge-image"><img src="assets/surface.png" alt="🍵"></span> surface-level answers, I want to understand things at 
+                    <span class="text-emphasis">the root.</span><br><br>This used to frustrate people. Now, it's my 
+                    <span class="text-emphasis">superpower. </span>
+                    <span class="inline-badge badge-icon"><img src="assets/muscle.svg" alt="📍"></span>
+                </h3>
+            </div>
+
+        </div>
+    </section>
+
+<!-- =========================================
+         WORK SECTION
+         ========================================= -->
+    <section id="work" class="work-section reveal-on-scroll">
+        <div class="work-container">
+            
+            <!-- PROJECT 1: View Project (with footer text) -->
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="info-top">
+                        <span class="project-year">LIVE</span>
+                        <h3 class="project-title">GalPal</h3>
+                        <hr class="project-divider">
+                    </div>
+                    <div class="info-bottom">
+                        <p class="project-footer-text">Because moving to a new city shouldn't mean eating dinner alone for 3 months.</p>
+                    </div>
+                </div>
+                <div class="project-visuals">
+                    <div class="project-image">
+                        <!-- Replace with your actual image -->
+                        <img src="assets/project1.png" alt="App UI Screens">
+                    </div>
+                    <a href="https://galpal.in" class="project-btn btn-active" target="_blank">
+                        View Project 
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2: View Project -->
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="info-top">
+                        <span class="project-year">LIVE</span>
+                        <h3 class="project-title">Blinkit Darkstore Command Hub</h3>
+                        <hr class="project-divider">
+                    </div>
+                    <div class="info-bottom">
+                        <p class="project-footer-text">What does the person behind your 10-minute delivery actually deal with?</p>
+                    </div>
+                </div>
+                <div class="project-visuals">
+                    <div class="project-image">
+                        <!-- Replace with your actual image -->
+                        <img src="assets/project2.png" alt="Project 2 Thumbnail">
+                    </div>
+                    <a href="https://blinkit-command-hub.vercel.app" class="project-btn btn-active" target="_blank">
+                        View Project 
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3: View Project -->
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="info-top">
+                        <span class="project-year">LIVE</span>
+                        <h3 class="project-title">PM Readiness Check</h3>
+                        <hr class="project-divider">
+                    </div>
+                    <div class="info-bottom">
+                        <p class="project-footer-text">An honest mirror for people transitioning into product management.</p>
+                    </div>
+                </div>
+                <div class="project-visuals">
+                    <div class="project-image">
+                        <!-- Replace with your actual image -->
+                        <img src="assets/project3.png" alt="Project 3 Thumbnail">
+                    </div>
+                    <a href="https://pro-digy.vercel.app" class="project-btn btn-active" target="_blank">
+                        View Project 
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 4: Under Progress (with stats layout) -->
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="info-top">
+                        <span class="project-year">IN-PROGRESS</span>
+                        <h3 class="project-title">21-Day AI Learning System</h3>
+                        <hr class="project-divider">
+                    </div>
+                    <div class="info-bottom">
+                        <p class="project-footer-text">Designed for the moment on Day 6 when your brain says 'skip today'</p>
+                    </div>
+                </div>
+                <div class="project-visuals">
+                    <div class="project-image">
+                        <!-- Replace with your actual image -->
+                        <img src="assets/project4.png" alt="Motion Design Cards">
+                    </div>
+                    <div class="project-btn btn-disabled">
+                        Under Progress
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<!-- =========================================
+         FOOTER / CONTACT SECTION
+         ========================================= -->
+    <footer id="contact" class="footer-section reveal-on-scroll">
+        <div class="footer-container">
+            
+            <!-- Decorative Header -->
+            <div class="footer-header">
+                <div class="decor-line"></div>
+                <span class="decor-star">✦</span>
+                <h2 class="footer-heading">I'M JUST A MAIL AWAY</h2>
+                <span class="decor-star">✦</span>
+                <div class="decor-line"></div>
+            </div>
+
+            <!-- Subtext -->
+            <p class="footer-subtext">
+                I’m open to interesting opportunities. <br>
+                Or you can still reach out to say “Hi” or something.
+            </p>
+
+            <!-- Action Buttons Row -->
+            <div class="footer-actions">
+                
+                <!-- Mail Button (Small) -->
+                <a href="mailto:rakshita.product@gmail.com" class="action-btn btn-small" aria-label="Send Mail">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+
+                <!-- Download Resume Button (Big) -->
+                <a href="https://drive.google.com/file/d/18JkgZ7Mko9TkSkRV5omAaHUnSFaqm6eg/view?usp=sharing" target="_blank" class="action-btn btn-large" aria-label="Download Resume" target="_blank">
+                    <span>Download Resume</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </a>
+
+                <!-- LinkedIn Button (Small) -->
+                <a href="https://www.linkedin.com/in/guptarakshita/" class="action-btn btn-small" target="_blank" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Link -->
+    <script src="script.js"></script>
+</body>
+</html>
