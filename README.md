@@ -1,4 +1,4 @@
-# 🌟 Rakshita Gupta | Product Portfolio
+# 🌟 Rakshita Gupta | Product Manager
 
 Welcome to the repository for my personal product portfolio! This website is designed to be a highly interactive, aesthetic, and tactile showcase of my journey as a Product Manager and Co-founder. 
 
