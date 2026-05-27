@@ -1,0 +1,420 @@
+/* =========================================
+   1. CSS VARIABLES & THEME SETUP
+   ========================================= */
+:root {
+    /* Exact Palette Provided */
+    --color-orange: #E15E40;
+    --color-olive: #737843;
+    --color-light-green: #D1D4B3;
+    --color-dark-green: #434F2D;
+    --color-bg-cream: #FCF8F0;
+    --color-sand: #EBD09A;
+    --color-brown: #7C532A;
+    --color-gold: #938255;
+
+    /* Fonts */
+    --font-serif: 'DM Serif Display', Georgia, serif;
+    --font-sans: 'Roboto', sans-serif;
+    --font-display: 'Bricolage Grotesque', sans-serif;
+
+    /* Grid & Layout */
+    --grid-size: 100px;
+    --wallet-width: 800px; 
+    --wallet-height: 400px; 
+}
+
+/* =========================================
+   2. RESETS, BASE & BACKGROUND
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg-cream);
+    font-family: var(--font-sans);
+    color: var(--color-brown);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Faint Grid Pattern */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(to right, rgba(124, 83, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(124, 83, 42, 0.06) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    background-position: center center;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Gentle Warm Radial Blur */
+.bg-glow {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw; height: 80vh;
+    background: radial-gradient(circle, rgba(225, 94, 64, 0.08) 0%, rgba(252, 248, 240, 0) 65%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Decorative Stars/Diamonds */
+.decorations { position: absolute; width: 100%; height: 100vh; top: 0; left: 0; pointer-events: none; z-index: 0; }
+.decor { position: absolute; background-color: var(--color-orange); opacity: 0.8; }
+.star-1 { top: 18%; left: 18%; width: 20px; height: 20px; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.star-2 { top: 15%; right: 12%; width: 16px; height: 16px; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.diamond-1 { top: 25%; left: 12%; width: 10px; height: 10px; transform: rotate(45deg); opacity: 0.4; }
+.diamond-2 { top: 22%; right: 10%; width: 8px; height: 8px; transform: rotate(45deg); opacity: 0.4; }
+
+/* =========================================
+   3. RECTANGLE NAVIGATION
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 30px; left: 0; width: 100%;
+    display: flex; justify-content: center; z-index: 100;
+}
+
+.nav-container {
+    background-color: #ffffff;
+    padding: 8px 32px 8px 8px;
+    border-radius: 12px;
+    display: flex; align-items: center; gap: 32px;
+    box-shadow: 0 4px 15px rgba(124, 83, 42, 0.05);
+}
+
+.nav-logo {
+    width: 40px; height: 40px;
+    background-color: var(--color-orange);
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 18px;
+    display: flex; justify-content: center; align-items: center;
+    border-radius: 8px;
+}
+
+.nav-links { list-style: none; display: flex; gap: 24px; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-orange);
+    font-family: var(--font-sans);
+    font-size: 0.85rem; font-weight: 500;
+    padding: 6px 4px;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover { color: var(--color-brown); }
+
+/* =========================================
+   4. HERO SECTION TYPOGRAPHY & SPACING
+   ========================================= */
+.hero-section {
+    height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+}
+
+.hero-content {
+    display: flex; flex-direction: column; align-items: center;
+    width: 100%; padding-top: 60px;
+}
+
+.hero-text-wrapper { text-align: center; margin-bottom: 90px; margin-top: -30px; }
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    color: var(--color-orange);
+    font-style: italic; font-weight: normal;
+    line-height: 1; margin-bottom: 16px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-display);
+    font-size: 0.85rem; color: var(--color-orange);
+    letter-spacing: 0.6em; text-transform: uppercase;
+    font-weight: 700; margin-left: 0.6em;
+}
+
+/* =========================================
+   5. WALLET POCKET & CARDS
+   ========================================= */
+.wallet-wrapper {
+    position: relative; width: 90%; max-width: var(--wallet-width);
+    height: var(--wallet-height); margin-top: 30px; cursor: pointer;
+}
+
+.wallet-back {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 70%;
+    background-color: #515c32; border-radius: 24px; z-index: 0; overflow: hidden;
+}
+
+.wallet-cards {
+    position: absolute; bottom: 80px; left: 50%;
+    transform: translateX(-50%); width: 90%; height: 320px; z-index: 1;
+}
+
+.card {
+    position: absolute; bottom: 0; width: 210px; height: 260px;
+    border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.12); background-color: #fff;
+    transform-origin: bottom center;
+    transition: transform 0.6s cubic-bezier(0.34, 1.75, 0.55, 1); 
+}
+
+.card-img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+
+.polaroid-card { left: 4%; transform: rotate(-15deg) translateY(-40px); padding: 12px 12px 48px 12px; z-index: 2; }
+.text-card {
+    left: 27%; transform: rotate(-5deg) translateY(-70px);
+    background-color: var(--color-sand); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; z-index: 1;
+}
+.role-text { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; line-height: 1.2; color: var(--color-dark-green); }
+.ex-text { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; color: var(--color-brown); }
+
+.ui-card { right: 25%; transform: rotate(5deg) translateY(-50px); z-index: 3; padding: 6px; background-color: #fff; border: 1px solid rgba(0,0,0,0.05); }
+.map-card { right: 2%; transform: rotate(16deg) translateY(-20px); z-index: 2; background-color: #f4eee1; padding: 8px; }
+.map-label { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: #181818; padding: 8px 20px; font-family: var(--font-serif); font-weight: 500; font-size: 1rem; white-space: nowrap; }
+
+.polaroid-card:hover { transform: rotate(-18deg) translateY(-120px) translateX(-10px); z-index: 9; }
+.text-card:hover { transform: rotate(-2deg) translateY(-145px); z-index: 9; }
+.ui-card:hover { transform: rotate(8deg) translateY(-135px); z-index: 9; }
+.map-card:hover { transform: rotate(20deg) translateY(-100px) translateX(10px); z-index: 9; }
+
+.wallet-front {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 210px;
+    background-color: var(--color-dark-green); border-radius: 0 0 24px 24px; z-index: 10; padding: 12px; box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
+}
+
+.wallet-decor-circles { position: absolute; left: -30px; top: 50%; transform: translateY(-50%); width: 120px; height: 120px; pointer-events: none; z-index: 11; }
+.circle-outer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; border: 2px dashed rgba(209, 212, 179, 0.15); }
+.circle-inner { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background-color: rgba(209, 212, 179, 0.05); }
+
+.wallet-stitching {
+    width: 100%; height: 100%; border: 2px dashed rgba(209, 212, 179, 0.4); border-radius: 0 0 16px 16px; position: relative; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden;
+}
+
+.wallet-texture { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%); background-size: 4px 4px; opacity: 0.5; pointer-events: none; }
+.wallet-greeting { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-family: var(--font-serif); font-size: clamp(3.5rem, 6vw, 5rem); color: var(--color-light-green); font-style: italic; font-weight: normal; z-index: 12; }
+
+.wallet-latch { position: absolute; right: -2px; top: 50%; transform: translateY(-50%); background-color: var(--color-olive); height: 130px; padding: 0 20px 0 35px; display: flex; align-items: center; border-radius: 80px 0 0 80px; z-index: 13; box-shadow: -6px 0 20px rgba(0,0,0,0.15); }
+.scroll-btn { background-color: var(--color-dark-green); border: none; border-radius: 50%; width: 58px; height: 58px; display: flex; justify-content: center; align-items: center; color: var(--color-bg-cream); cursor: pointer; transition: all 0.3s ease; box-shadow: inset 0 2px 5px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.15); overflow: hidden; }
+.scroll-btn:hover { transform: translateY(4px); background-color: #353f22; }
+.scroll-btn svg { animation: arrowInfiniteSlide 1.6s infinite cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+@keyframes arrowInfiniteSlide {
+    0% { transform: translateY(-22px); opacity: 0; }
+    30% { transform: translateY(0); opacity: 1; }
+    70% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(22px); opacity: 0; }
+}
+
+/* =========================================
+   6. ABOUT SECTION (TEXT & BENTO BOX)
+   ========================================= */
+.about-section {
+    min-height: 50vh; display: flex; justify-content: center;
+    padding: 120px 20px 80px 20px; background-color: transparent; z-index: 1; position: relative;
+}
+
+.about-container { width: 100%; max-width: 900px; display: flex; flex-direction: column; gap: 80px; }
+
+/* -- Top Text Area -- */
+.about-text-content { max-width: 800px; margin: 0 auto; text-align: center; color: var(--color-gold); }
+.about-statement { font-family: var(--font-display); font-size: 1.8rem; font-weight: 500; line-height: 1.6; margin-bottom: 30px; color: var(--color-gold); }
+.text-emphasis { font-family: var(--font-serif); font-style: italic; color: var(--color-dark-green); font-weight: 600; }
+
+.inline-badge { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; margin: 0 6px; transition: transform 0.3s cubic-bezier(0.34, 1.5, 0.64, 1); cursor: default; }
+.inline-badge:hover { transform: scale(1.08) rotate(-2deg); }
+.badge-orange { background-color: var(--color-orange); color: #ffffff; font-family: var(--font-serif); font-style: italic; font-size: 1.4rem; padding: 2px 20px; border-radius: 8px; border: 2px solid white; box-shadow: 0 4px 12px rgba(225, 94, 64, 0.2); transform: rotate(-3deg) translateY(-4px); }
+.badge-icon { width: 36px; height: 36px; background: #ffffff; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.08); font-size: 1.2rem; }
+.badge-image img, .badge-scenic img { height: 40px; border-radius: 8px; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); object-fit: cover; }
+.badge-scenic img { width: 120px; border-radius: 20px; }
+
+/* =========================================
+   BENTO GRID LAYOUT & BASE
+   ========================================= */
+.bento-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto;
+    gap: 24px; width: 100%; margin-top: 20px;
+}
+
+/* Base Card Styles + Noise Texture Overlay */
+.bento-card {
+    border-radius: 24px; padding: 32px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(124, 83, 42, 0.05);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* The Grainy Noise Effect */
+.bento-card::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+}
+
+/* Keep content above the noise */
+.bento-card > * { position: relative; z-index: 1; }
+
+.bento-card h4 { font-family: var(--font-sans); font-size: 1.35rem; color: var(--color-dark-green); margin-bottom: 12px; }
+.bento-card p { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: rgba(67, 79, 45, 0.9); }
+
+/* Hover effect for most cards */
+.bento-card:not(.bento-core):hover { transform: translateY(-5px); }
+
+/* -- Card 1: Sanity (Green Gradient) -- */
+.bento-sanity { background: linear-gradient(145deg, #a2ac81 0%, #889366 100%); grid-row: span 2; justify-content: flex-end; padding-top: 280px; }
+.bento-sanity h4 { color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 8px;}
+.bento-sanity p { color: #fdfbf7; font-weight: 400; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+
+.sanity-polaroids { position: absolute; top: -20px; left: 0; width: 100%; height: 250px; }
+
+/* Larger, authentic polaroid styling */
+.polaroid {
+    position: absolute; background: white; padding: 12px 12px 48px 12px;
+    border-radius: 4px; box-shadow: 0 12px 25px rgba(0,0,0,0.2); transition: transform 0.5s cubic-bezier(0.34, 1.5, 0.64, 1);
+}
+.polaroid-img { width: 130px; height: 170px; object-fit: cover; border-radius: 2px; }
+.polaroid-caption { position: absolute; bottom: 14px; left: 0; width: 100%; text-align: center; font-family: var(--font-serif); font-style: italic; color: #434F2D; font-size: 1.1rem; }
+
+.p-journal { left: 10%; top: 40px; transform: rotate(-8deg); z-index: 2; }
+.p-games { right: 8%; top: 60px; transform: rotate(12deg); z-index: 1; }
+
+.bento-sanity:hover .p-journal { transform: rotate(-16deg) translateX(-15px) translateY(-10px); }
+.bento-sanity:hover .p-games { transform: rotate(18deg) translateX(15px) translateY(-5px); }
+
+/* -- Card 2: Core Skills (Sand Gradient) -- */
+.bento-core { background: linear-gradient(145deg, #f4e1b8 0%, #e8c68a 100%); grid-column: span 2; flex-direction: row; align-items: center; gap: 30px; }
+.bento-core h4 { color: #5a3c1e; }
+.bento-core p { color: #7a5833; font-weight: 500; }
+.core-content { flex: 1; }
+.core-tags { flex: 1.2; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.core-tag {
+    background: white; color: var(--color-brown); padding: 10px 18px; border-radius: 30px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.06); cursor: default; transition: transform 0.3s cubic-bezier(0.34, 1.5, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.tag-1 { transform: rotate(-4deg); } .tag-2 { transform: rotate(6deg); } .tag-3 { transform: rotate(-2deg); } .tag-4 { transform: rotate(8deg); } .tag-5 { transform: rotate(-6deg); } .tag-6 { transform: rotate(4deg); } .tag-7 { transform: rotate(-3deg); }
+
+/* Pills jump UP individually on hover, card stays still */
+.core-tag:hover { transform: translateY(-8px) scale(1.08) !important; box-shadow: 0 12px 20px rgba(0,0,0,0.12); z-index: 10; }
+
+/* -- Card 3: Reading (Cream Gradient) -- */
+.bento-reading { background: linear-gradient(145deg, #f9f5ed 0%, #ece2d0 100%); align-items: center; text-align: center; padding-bottom: 0; }
+.reading-book { margin-top: auto; width: 140px; border-radius: 6px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); transform: translateY(35%); transition: transform 0.5s cubic-bezier(0.34, 1.5, 0.64, 1); }
+.bento-reading:hover .reading-book { transform: translateY(15%) rotate(2deg); }
+
+/* -- Card 4: Teaching (Olive Gradient) -- */
+.bento-teaching { background: linear-gradient(145deg, #c5cc9f 0%, #aeb686 100%); padding-bottom: 0; }
+.bento-teaching h4 { text-align: center; color: #3b4625;}
+.teaching-videos { position: absolute; bottom: -40px; left: 0; width: 100%; height: 180px; }
+.video-card { position: absolute; width: 160px; border-radius: 8px; border: 3px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: transform 0.5s cubic-bezier(0.34, 1.5, 0.64, 1); }
+.vc-1 { left: 8%; bottom: 20px; transform: rotate(-6deg); z-index: 1; }
+.vc-2 { right: 8%; bottom: 40px; transform: rotate(8deg); z-index: 2; }
+.bento-teaching:hover .vc-1 { transform: rotate(-10deg) translateX(-10px) translateY(-15px); }
+.bento-teaching:hover .vc-2 { transform: rotate(12deg) translateX(10px) translateY(-15px); }
+
+/* =========================================
+   7. WORK SECTION (HEADING & 2x2 GRID)
+   ========================================= */
+.work-section { padding: 100px 20px; display: flex; justify-content: center; position: relative; z-index: 1; }
+.work-container { width: 100%; max-width: 1100px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+
+/* New Work Heading Styles */
+.work-statement { font-family: var(--font-display); font-size: 1.8rem; font-weight: 500; line-height: 1.6; color: var(--color-gold); }
+.heading-badge { display: inline-block; padding: 4px 24px; border-radius: 12px; font-family: var(--font-serif); font-style: italic; font-weight: normal; color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: rotate(-2deg); margin: 0 8px; border: 3px solid white; transition: transform 0.3s cubic-bezier(0.34, 1.5, 0.64, 1); cursor: default; }
+.heading-badge:hover { transform: scale(1.08) rotate(-4deg); }
+.badge-growth { background-color: var(--color-orange); }
+.badge-gig { background-color: #e1d6c0; color: var(--color-brown); transform: rotate(3deg); }
+.badge-gig:hover { transform: scale(1.08) rotate(5deg); }
+
+/* Project Grid Items */
+.project-item { display: flex; flex-direction: column; gap: 16px; }
+.project-image { width: 100%; height: 380px; border-radius: 24px; overflow: hidden; background-color: #f5eedf; }
+.project-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+.project-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 20px; border-radius: 12px; font-family: var(--font-sans); font-size: 1.3rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+.btn-active { background-color: var(--color-sand); color: var(--color-brown); }
+.btn-active:hover { filter: brightness(0.95); transform: translateY(-2px); }
+.btn-active svg { transition: transform 0.3s ease; }
+.btn-active:hover svg { transform: translateX(6px); }
+.btn-disabled { background-color: #D3CDC2; color: #7A756D; cursor: not-allowed; }
+
+/* =========================================
+   8. FOOTER SECTION
+   ========================================= */
+.footer-section { padding: 100px 20px 140px 20px; display: flex; justify-content: center; text-align: center; position: relative; z-index: 1; }
+.footer-container { width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center; }
+.footer-header { display: flex; align-items: center; width: 100%; gap: 16px; margin-bottom: 24px; }
+.decor-line { flex: 1; height: 1px; background-color: rgba(124, 83, 42, 0.2); }
+.decor-star { color: #c2ad8a; font-size: 1.2rem; }
+.footer-heading { font-family: var(--font-serif); font-style: italic; font-size: 2.2rem; color: var(--color-brown); white-space: nowrap; letter-spacing: 1px; }
+.footer-subtext { font-family: var(--font-sans); font-size: 1.15rem; line-height: 1.6; color: var(--color-gold); margin-bottom: 40px; }
+.footer-actions { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.action-btn { background-color: #EBD09A; color: var(--color-brown); border: 1px solid rgba(124, 83, 42, 0.25); border-bottom: 3.5px solid rgba(124, 83, 42, 0.4); border-right: 2px solid rgba(124, 83, 42, 0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.1s ease-out; }
+.action-btn:hover { background-color: #e2c58e; color: var(--color-brown); }
+.action-btn:active { transform: translate(2px, 2px); border-bottom: 1.5px solid rgba(124, 83, 42, 0.4); border-right: 1px solid rgba(124, 83, 42, 0.3); }
+.btn-small { width: 52px; height: 52px; }
+.btn-large { height: 52px; padding: 0 28px; font-family: var(--font-sans); font-weight: 700; font-size: 1.05rem; gap: 12px; }
+
+/* =========================================
+   9. SCROLL REVEAL ANIMATIONS
+   ========================================= */
+.reveal-on-scroll { opacity: 0; transform: translateY(40px); transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
+.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+   10. RESPONSIVE MEDIA QUERIES
+   ========================================= */
+@media (max-width: 860px) {
+    /* Wallet Base Mobile */
+    .wallet-wrapper { width: 92%; height: 300px; }
+    .card { width: 155px; height: 195px; }
+    .polaroid-card { left: 1%; padding: 8px 8px 32px 8px; transform: rotate(-15deg) translateY(-20px); }
+    .text-card { left: 24%; padding: 16px; transform: rotate(-5deg) translateY(-40px); }
+    .role-text { font-size: 1.1rem; } .ex-text { font-size: 0.75rem; }
+    .ui-card { right: 24%; transform: rotate(5deg) translateY(-30px); }
+    .map-card { right: 1%; transform: rotate(16deg) translateY(-10px); }
+    .map-label { font-size: 0.85rem; padding: 6px 12px; bottom: 8px; }
+    .wallet-front { height: 160px; }
+    .wallet-latch { height: 100px; padding: 0 15px 0 25px; border-radius: 60px 0 0 60px; }
+    .scroll-btn { width: 46px; height: 46px; }
+    .wallet-decor-circles { display: none; }
+
+    /* About Base Mobile */
+    .about-statement { font-size: 1.5rem; }
+    .badge-orange { font-size: 1.2rem; padding: 2px 12px; }
+    
+    /* Bento Grid Mobile Updates */
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-sanity, .bento-core { grid-column: span 1; grid-row: span 1; }
+    .bento-core { flex-direction: column; text-align: center; padding: 32px 20px; }
+    .bento-sanity { padding-top: 260px; }
+    .polaroid-img { width: 110px; height: 140px; }
+    .p-journal { left: 2%; }
+    .p-games { right: 2%; }
+
+    /* Work Section Mobile Updates */
+    .work-statement { font-size: 1.4rem; line-height: 1.6; }
+    .heading-badge { padding: 2px 16px; font-size: 1.2rem; }
+    .work-container { grid-template-columns: 1fr; gap: 40px; }
+    .project-image { height: 300px; }
+    .project-title { font-size: 1.5rem; }
+
+    /* Footer Mobile Updates */
+    .footer-header { flex-direction: column; gap: 8px; }
+    .decor-line { width: 100%; max-width: 200px; }
+    .footer-heading { font-size: 1.8rem; white-space: normal; }
+    .footer-subtext { font-size: 1rem; padding: 0 10px; }
+    .footer-actions { flex-wrap: wrap; }
+}
